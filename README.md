@@ -13,5 +13,3 @@ Programma kas ļauj izveidot picas pasūtījumu!
 - [ ] Sniedz atbildes uz uzdotajiem jautājumiem.
 - [ ] Veiksmīgi veic skolotāja izveidoto nepilnību/papildinājumu pieteikuma (issue) atrisināšanu un atrādīšanu:
 - [ ] Atrisina un aizver visas skolotāja izveidotās problēmas.
-
-![MR. Bean](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGHZDh5q1r7yXy-4nsFQG2LMTi4t3pRkb-Bmt24TVK2BlUhX_qeki3WXRDDGRmuta57iI&usqp=CAU)
