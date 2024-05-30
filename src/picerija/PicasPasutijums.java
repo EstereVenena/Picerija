@@ -33,7 +33,7 @@ public class PicasPasutijums implements Serializable {
                 "\nPiedevas: " + String.join(", ", piedevas) +
                 "\nMerce: " + merce +
                 "\nPiegade: " + (piegade ? "Ja" : "Ne") +
-                "\nCena: " + cena +
+                "\nKopeja cena: " + cena +
         		"\n--------------------------------------------";
     }
 }
