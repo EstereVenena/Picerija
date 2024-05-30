@@ -4,18 +4,18 @@ import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+
 public class Main {
     private static final String ORDER_FILE = "picas_pasutijumi.txt"; 
     private static List<PicasPasutijums> pasutijumi = new ArrayList<>(); 
+
     public static void main(String[] args) {
         loadOrders();
         while (true) {
-           
             String[] options = {"Jauns Pasutijums", "Skatit Pasutijumus", "Iziet"};
             int choice = JOptionPane.showOptionDialog(null, "Izveleties opciju:", "Picas Pasutijumu Sistema",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 
-           
             if (choice == 0) {
                 createNewOrder(); 
             } else if (choice == 1) {
@@ -28,7 +28,6 @@ public class Main {
     }
 
     private static void createNewOrder() {
-     
         String vards = JOptionPane.showInputDialog("Ievadiet savu vardu:");
         if (vards == null || vards.trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Vards ir obligats.");
@@ -49,7 +48,6 @@ public class Main {
             }
         }
 
-       
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
@@ -85,7 +83,6 @@ public class Main {
         }
         String merce = (String) mercesIzvele.getSelectedItem();
 
-       
         int piegadesOpcija = JOptionPane.showConfirmDialog(null, "Vai velaties piegadi? +5€", "Piegades Opcija", JOptionPane.YES_NO_OPTION);
         boolean piegade = (piegadesOpcija == JOptionPane.YES_OPTION);
 
@@ -97,7 +94,6 @@ public class Main {
                 return;
             }
         }
-
 
         double cena = 10.0;
         switch (izmers) {
@@ -113,11 +109,9 @@ public class Main {
             cena += 5.0;
         }
 
-       
         PicasPasutijums pasutijums = new PicasPasutijums(vards, adrese, telefons, izmers, piedevas, merce, piegade, cena);
         pasutijumi.add(pasutijums);
 
-      
         JOptionPane.showMessageDialog(null, "Jūsu pasūtījums ir veikts!\n" + pasutijums);
     }
 
@@ -142,37 +136,39 @@ public class Main {
             while ((line = br.readLine()) != null) {
                 if (line.trim().isEmpty()) continue;
 
-                String vards = line.split(":")[1].trim();
-                String adrese = br.readLine().split(":")[1].trim();
-                String telefons = br.readLine().split(":")[1].trim();
-                String izmers = br.readLine().split(":")[1].trim();
-                String[] piedevas = br.readLine().split(":")[1].trim().split(", ");
-                String merce = br.readLine().split(":")[1].trim();
-                boolean piegade = br.readLine().split(":")[1].trim().equals("Ja");
-                double cena = Double.parseDouble(br.readLine().split(":")[1].trim());
+                String[] parts = line.split(":");
+                if (parts.length >= 2) {
+                    String vards = parts[1].trim();
+                    String adrese = br.readLine().split(":")[1].trim();
+                    String telefons = br.readLine().split(":")[1].trim();
+                    String izmers = br.readLine().split(":")[1].trim();
+                    String[] piedevas = br.readLine().split(":")[1].trim().split(", ");
+                    String merce = br.readLine().split(":")[1].trim();
+                    boolean piegade = br.readLine().split(":")[1].trim().equals("Ja");
+                    double cena = Double.parseDouble(br.readLine().split(":")[1].trim());
 
-                
-                List<String> piedevuSaraksts = new ArrayList<>();
-                for (String piedeva : piedevas) {
-                    if (!piedeva.isEmpty()) {
-                        piedevuSaraksts.add(piedeva);
+                    List<String> piedevuSaraksts = new ArrayList<>();
+                    for (String piedeva : piedevas) {
+                        if (!piedeva.isEmpty()) {
+                            piedevuSaraksts.add(piedeva);
+                        }
                     }
+                   pasutijumi.add(new PicasPasutijums(vards, adrese, telefons, izmers, piedevuSaraksts, merce, piegade, cena));
                 }
-               pasutijumi.add(new PicasPasutijums(vards, adrese, telefons, izmers, piedevuSaraksts, merce, piegade, cena));
             }
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Kļūda ielādējot iepriekšējos pasūtījumus: " + e.getMessage(), "Kļūda", JOptionPane.ERROR_MESSAGE);
+        }catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Kļūda ielādējot iepriekšējos pasūtījumus: " + e.getMessage(), "Kļūda", JOptionPane.ERROR_MESSAGE);
+            }
         }
-    }
 
-    private static void saveOrders() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ORDER_FILE))) {
-            for (PicasPasutijums pasutijums : pasutijumi) {
-                bw.write(pasutijums.toString());
-                bw.write("\n");
+        private static void saveOrders() {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(ORDER_FILE))) {
+                for (PicasPasutijums pasutijums : pasutijumi) {
+                    bw.write(pasutijums.toString());
+                    bw.write("\n");
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Kļūda saglabājot pasūtījumus: " + e.getMessage(), "Kļūda", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Kļūda saglabājot pasūtījumus: " + e.getMessage(), "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
     }
-}
