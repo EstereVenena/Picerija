@@ -53,12 +53,12 @@ public class Main {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        String[] izmeri = {"Maza", "Vidēja", "Liela"};
+        String[] izmeri = {"Maza 10€", "Vidēja 12€", "Liela 14€"};
         JComboBox<String> izmeraIzvele = new JComboBox<>(izmeri);
         panel.add(new JLabel("Izveleties picas izmeru:"));
         panel.add(izmeraIzvele);
 
-        String[] piedevuOpcijas = {"Siers", "Pepperoni", "Sampinjoni", "Sīpoli", "Bekons"};
+        String[] piedevuOpcijas = {"Siers +0.5€", "Pepperoni +0.5€", "Sampinjoni +0.5€", "Sīpoli +0.5€", "Bekons +0.5€"};
         JCheckBox[] piedevuIzvelnes = new JCheckBox[piedevuOpcijas.length];
         panel.add(new JLabel("Izveleties piedevas:"));
         for (int i = 0; i < piedevuOpcijas.length; i++) {
@@ -86,7 +86,7 @@ public class Main {
         String merce = (String) mercesIzvele.getSelectedItem();
 
        
-        int piegadesOpcija = JOptionPane.showConfirmDialog(null, "Vai velaties piegadi?", "Piegades Opcija", JOptionPane.YES_NO_OPTION);
+        int piegadesOpcija = JOptionPane.showConfirmDialog(null, "Vai velaties piegadi? +5€", "Piegades Opcija", JOptionPane.YES_NO_OPTION);
         boolean piegade = (piegadesOpcija == JOptionPane.YES_OPTION);
 
         String adrese = "";
