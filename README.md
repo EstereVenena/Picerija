@@ -1,15 +1,17 @@
 # Picerija
 Programma kas ļauj izveidot picas pasūtījumu!
 
-### Veicamo darbu saraksts
-- [ ] Dodies uz GitHub un izveidojiet jaunu publisko krātuvi "Uzvards-pica".
-- [ ] Izveidot README.md failu.
-- [ ] Ar Markdown sintakses palīdzību ievietot projekta aprakstu, ievietot atbilstošus attēlus, veicamo darbu sarakstu, veikt noformēšanu, izmantojot tēmām atbilstošas ikonas.
-- [ ] Veikt izstrādātās programmas izgrūšanu (push) uz GitHub krātuvi:
-- [ ] Izgrūžot iekļaut visus projekta zarus (branch) un visus projekta failus.
-- [ ] Eksportēt savu Java projektu kā .jar (Java Archive) failu un ievietot to kā sava GitHub projekta izlaidumu (release):
-- [ ] Noteiktajā termiņā skolotāju ar GitHub lietotājvārdu "Bugsters104" piesaistīt savam projektam kā līdzdalībnieku (collaborator):
-- [ ] Pārliecinoši prezentē izstrādāto projektu kursa biedriem:
-- [ ] Sniedz atbildes uz uzdotajiem jautājumiem.
-- [ ] Veiksmīgi veic skolotāja izveidoto nepilnību/papildinājumu pieteikuma (issue) atrisināšanu un atrādīšanu:
-- [ ] Atrisina un aizver visas skolotāja izveidotās problēmas.
+
+## Programmas darbība
+![pica](https://github.com/EstereVenena/Picerija/assets/165994277/b8603544-b931-4494-bb24-de3c5ad017b1)
+
+Šijā programmas logā var izvēlēties vai izveidot junu pasūtijumu, apskatīt jau izveidotos, vai arī iziet no programmas.
+
+![Screenshot 2024-05-30 025749](https://github.com/EstereVenena/Picerija/assets/165994277/379e8547-506d-4ff7-86b7-1b3f04123c9a)
+
+Šeit var redzēt ka izskatās picas pasūtijuma veidošana.
+
+![Screenshot 2024-05-30 025950](https://github.com/EstereVenena/Picerija/assets/165994277/e7fd070c-0a19-49b6-91ec-b9b204ac2f7b)
+
+Kad izvēlas apskatīt pasūtijumus var redzēt picas izmēru, mērci un piedevas.
+Ja pircējs izvēlejās piegādi var redzēt adresi.
